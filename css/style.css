@@ -18,7 +18,7 @@
     display: inline-block;
     font-size: 20rem;
     padding: 20rem 30rem;
-    border: 1px solid var(--wc);
+    border: 3px solid var(--wc);
     color: var(--wc);
     border-radius: 30rem;
     overflow: hidden;
@@ -323,6 +323,78 @@
     transform: translate(0, 0);
 }
 
+.main_visual .scroll i{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 999;
+
+    font-size: 16rem;
+    color: var(--wc);
+}
+
+.main_visual .scroll i::after {
+    content: "";
+    display: block;
+    margin: 20rem auto 0;
+    width: 1rem;
+    height: 90rem;
+    background: #ffffff45;
+
+    position: relative;
+}
+
+.main_visual .scroll::after {
+    content: "";
+    position: absolute;
+    bottom: 100rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 3rem;
+    height: 3rem;
+    margin: 0 0 0 -1rem;
+    background: var(--wc);
+    border-radius: 50%;
+    z-index: 999;
+
+    animation: pagedownFillarc 1.3s linear 1s infinite;
+}
+
+@keyframes pagedownFillarc {
+    0% {
+        transform: translate(-50%, 0);
+    }
+
+    40% {
+        transform: translate(-50%, 105px);    
+    }
+
+    50% {
+        transform: translate(-50%, 105px);
+        outline: 5px solid rgba(255, 255, 255, 0.3);
+    }
+
+
+    70% {
+        transform: translate(-50%, 105px);
+        outline: 15px solid rgba(255, 255, 255, 0.3);
+    }
+
+    90% {
+        transform: translate(-50%, 105px);
+        outline: 25px solid rgba(255, 255, 255, 0.3);
+    }
+
+    100% {
+        transform: translate(-50%, 105px);
+        outline: 30px solid rgba(255, 255, 255, 0.1);
+    }
+
+}
+
+
 .main_visual .arrows {
     position: absolute;
     top: 50%;
@@ -344,50 +416,61 @@
 
     position: absolute;
     top: 0;
+
+    transition: .5s;
 }
 
 .main_visual .arrows .left {
-    left: 15rem;
+    left: -400rem;
+}
+
+.main_visual:hover .arrows .left {
+    left: -300rem;
 }
 
 .main_visual .arrows .right {
-    right: 15rem;
+    right: -400rem;
+}
+
+.main_visual:hover .arrows .right {
+    right: -300rem;
 }
 
 .main_visual .btn_cicle {
     position: absolute;
-    bottom: 0rem;
-    right: 100rem;
+    bottom: -100rem;
+    right: 300rem;
     z-index: 999;
 
-    transform: translate(0, 50%);
+    width: 200rem;
+    height: 200rem;
+}
 
+.main_visual .btn_cicle .case {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 200rem;
     height: 200rem;
     background: var(--mc);
     color: var(--wc);
     font-size: 20rem;
     border-radius: 50%;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    flex-direction: column;
     line-height: 26rem;
-
-    transition: 2s;
 }
 
-.main_visual .btn_cicle:hover {
-    animation: heartBeat 2s;
+.main_visual .btn_cicle:hover .case {
+    animation: heartBeat 1s infinite;
 }
 
-.main_visual .btn_cicle::before {
+.main_visual .btn_cicle .case::before {
     content: "";
     display: block;
     width: 26rem;
     height: 30rem;
-    background: url(../imgs/icon_apply.svg)no-repeat center center/cover;
+    background: url(../imgs/icon_apply.svg) no-repeat center center/cover;
     margin: 0 0 20rem 0;
 }
 
@@ -526,7 +609,7 @@
 .main_notice .arrows i {
     padding: 14rem 16rem;
     font-size: 25rem;
-    background: var(--dc);
+    background: var(--bc);
     color: var(--wc);
     border-radius: 50%;
     margin: 0 10rem 0 0;
@@ -559,7 +642,7 @@
     left: -20rem;
     width: 150rem;
     height: 150rem;
-    outline: 50rem soild var(--mc);
+    outline: 50rem solid var(--mc);
 }
 
 .main_notice img {
@@ -587,6 +670,7 @@
 
 .main_banner .content {
     position: relative;
+    z-index: 999;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30rem;
@@ -599,17 +683,15 @@
 
     transition: .5s;
     transform: translate(0, 100rem);
-
-    z-index: 999;
 }
 
-.main_banner.on .content{
+.main_banner.on .content {
     transform: translate(0, 0);
 }
 
-.main_banner .content a{
+.main_banner .content a {
     display: block;
-    padding: 80rem 60rem;
+    padding: 60rem 80rem;
 }
 
 .main_banner .content h3 {
@@ -630,23 +712,16 @@
 .main_banner .content li a::after {
     content: "";
     position: absolute;
-    right: 50rem;
+    right: 80rem;
     top: 50%;
     transform: translate(0, -50%);
     width: 100rem;
     height: 100rem;
-    background: url(../imgs/icon_experience.svg)no-repeat center center;
+    background: url(../imgs/icon_experience.svg) no-repeat center center;
 }
 
-.main_banner .content li~li a::after {
-    content: "";
-    position: absolute;
-    right: 50rem;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 100rem;
-    height: 100rem;
-    background: url(../imgs/icon_theater.svg)no-repeat center center;
+.main_banner .content li:last-child a::after {
+    background: url(../imgs/icon_theater.svg) no-repeat center center;
 }
 
 .main_banner .content li~li::before {
@@ -667,10 +742,10 @@
 
 .footer .top {
     position: relative;
-    border-radius: 100rem 0 0 0;
+    border-radius: 180rem 0 0 0;
     overflow: hidden;
     background: #434250  url(../imgs/bg_banner.jpg)no-repeat center bottom;
-    padding: 300rem 0;
+    padding: 200rem 0 300rem 0;
 }
 
 .footer .top .content {
@@ -686,26 +761,109 @@
     font-size: 30rem;
     font-weight: 500;
     font-family: 'Noto Serif KR';
-    color: var(--gc);
+    color: var(--bc);
+
+}
+
+.footer .top .content .txt span {
+    position: relative;
+
+}
+
+.footer .top .content .txt span::after {
+    content:"“ 경상북도 울릉읍 독도리 1-96 ”";
+    position: absolute;
+    top: 6px;
+    left: 0;
+    color: var(--wc);
+
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    border-right: 1px solid #999;
+    transition: 3s;
+    
+    animation: typing 7s steps(31) infinite;
+    /* transition-timing-function: steps(24, end); */
+}
+
+.footer .top .content .txt span::after {
+    width: 428rem;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 428rem;
+    }
+
+    100% {
+        width: 0;
+    }
 }
 
 .footer .top .dots span {
     position: absolute;
     left: 50%;
-    width: 5px;
-    height: 5px;
+    width: 7rem;
+    height: 7rem;
     background: var(--gc);
     border-radius: 50%;
 }
 
+.footer .top .dots span::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 7rem;
+    height: 7rem;
+    background: #ffffff25;
+    border-radius: 50%;
+    animation: scale1 2s infinite;
+}
+
+@keyframes scale1 {
+    0% {
+        transform: none;
+      }
+    
+    50% {
+        transform: scale(4.5);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
 .footer .top .dots span:nth-child(1) {
     bottom: 310rem;
-    margin: 0 0 0 -310rem;
+    margin: 0 0 -1rem -297rem;
 }
 
 .footer .top .dots span:nth-child(2) {
     bottom: 200rem;
-    margin: 0 0 0 160rem;
+    margin: 0 0 -4rem 146rem;
+}
+
+.footer .top .dots span i {
+    display: flex;
+    position: absolute;
+    top: -35rem;
+    left: -15rem;
+
+    font-family: 'Noto Serif KR';
+    width: 50rem;
+    height: 40rem;
+    font-size: 20rem;
+    color: var(--wc);
 }
 
 .footer .bottom {
@@ -713,6 +871,11 @@
     padding: 50rem 0 100rem 0;
     color: var(--gc);
     font-size: 15rem;
+}
+
+
+.footer .bottom .content {
+    position: relative;
 }
 
 .footer .bottom .customer {
@@ -743,4 +906,49 @@
 .footer .bottom .copyright {
     font-size: 12rem;
     color: var(--lc);
+}
+
+.footer .bottom .f_web img{
+    position: absolute;
+    top: 50%;
+    right: 230rem;
+
+    width: 150rem;
+    height: 100rem;
+}
+
+.footer .bottom .f_map {
+    display: block;
+    width: 170rem;
+    height: 170rem;
+    background: #B4613D;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: -50rem;
+    right: 0;
+}
+
+.footer .bottom .f_map span {
+    font-size: 18rem;
+    text-align: center;
+    line-height: 27rem;
+    color: var(--wc);
+
+    position: absolute;
+    bottom: 40rem;
+    right: 44rem;
+    z-index: 999;
+}
+
+.footer .bottom .f_map::before {
+    content: "";
+    width: 30rem;
+    height: 30rem;
+    background: url(../imgs/icon_map.svg)no-repeat;
+
+    position: absolute;
+    bottom: 110rem;
+    right: 71rem;
+    z-index: 999;
 }

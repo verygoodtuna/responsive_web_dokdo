@@ -1,5 +1,6 @@
 $(function () {
 
+
     $(window).on('scroll', function () {
         let sct = $(window).scrollTop();
         sct > 0
@@ -38,9 +39,19 @@ $(function () {
         mainSlide.slideNext();
     });
 
-    const noticeslide = new Swiper('.notice_slide', {
+    const noticeSlide = new Swiper('.notice_slide', {
         loop: true,
         slidesPerView: 2,
         spaceBetween: 30,
-    })
+    });
+
+    $('.main_notice .arrows .left').on('click', function () {
+        noticeSlide.slidePrev();
+    });
+
+    $('.main_notice .arrows .right').on('click', function () {
+        noticeSlide.slideNext();
+    });
+
+
 })
