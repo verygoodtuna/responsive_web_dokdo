@@ -71,3 +71,36 @@
     width: 1px;
     background: rgba(255, 255, 255, 0.3);
 }
+
+ .login_area .member {
+        display: flex;
+        gap: 30px;
+    }
+
+    .login_area .member a {
+        font-size: 15rem;
+        color: var(--wc);
+    }
+
+    .header .login_area {
+        display: none;
+    }
+
+    .header.on .login_area .member a {
+        color: var(--dc);
+    }
+
+    .login_area .member li {
+        position: relative;
+    }
+
+    .login_area .member li~li::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -15rem;
+        width: 2px;
+        height: 2px;
+        transform: translate(-50%, -50%);
+        background: var(--wc);
+    }
